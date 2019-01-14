@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HertzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TravelTimes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Origin Movement ID" Type="int" />
+          <Property Name="Origin Display Name" Type="varchar" MaxLength="200" />
+          <Property Name="Destination Movement ID" Type="int" />
+          <Property Name="Destination Display Name" Type="varchar" MaxLength="200" />
+          <Property Name="Date Range" Type="varchar" MaxLength="200" />
+          <Property Name="Mean Travel Time (Seconds)" Type="int" />
+          <Property Name="Range - Lower Bound Travel Time (Seconds)" Type="int" />
+          <Property Name="Range - Upper Bound Travel Time (Seconds)" Type="int" />
+        </EntityType>
+        <EntityContainer Name="HertzModelStoreContainer">
+          <EntitySet Name="TravelTimes" EntityType="Self.TravelTimes" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HertzModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TravelTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Origin_Movement_ID" Type="Int32" />
+          <Property Name="Origin_Display_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Destination_Movement_ID" Type="Int32" />
+          <Property Name="Destination_Display_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Range" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Mean_Travel_Time__Seconds_" Type="Int32" />
+          <Property Name="Range___Lower_Bound_Travel_Time__Seconds_" Type="Int32" />
+          <Property Name="Range___Upper_Bound_Travel_Time__Seconds_" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="HertzEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TravelTimes" EntityType="Self.TravelTime" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HertzModelStoreContainer" CdmEntityContainer="HertzEntities">
+          <EntitySetMapping Name="TravelTimes">
+            <EntityTypeMapping TypeName="HertzModel.TravelTime">
+              <MappingFragment StoreEntitySet="TravelTimes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Origin_Movement_ID" ColumnName="Origin Movement ID" />
+                <ScalarProperty Name="Origin_Display_Name" ColumnName="Origin Display Name" />
+                <ScalarProperty Name="Destination_Movement_ID" ColumnName="Destination Movement ID" />
+                <ScalarProperty Name="Destination_Display_Name" ColumnName="Destination Display Name" />
+                <ScalarProperty Name="Date_Range" ColumnName="Date Range" />
+                <ScalarProperty Name="Mean_Travel_Time__Seconds_" ColumnName="Mean Travel Time (Seconds)" />
+                <ScalarProperty Name="Range___Lower_Bound_Travel_Time__Seconds_" ColumnName="Range - Lower Bound Travel Time (Seconds)" />
+                <ScalarProperty Name="Range___Upper_Bound_Travel_Time__Seconds_" ColumnName="Range - Upper Bound Travel Time (Seconds)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
